@@ -1,0 +1,6 @@
+[submodule "job-board-backend"]
+	path = job-board-backend
+	url = https://github.com/TymonSliwinski/job-board-backend
+[submodule "job-board-mobile"]
+	path = job-board-mobile
+	url = https://github.com/TymonSliwinski/job-board-mobile

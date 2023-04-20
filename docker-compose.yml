@@ -1,0 +1,37 @@
+version: "3.7"
+
+services:
+    postgres:
+        image: postgres:14.3
+        restart: always
+        ports:
+            - "5432:5432"
+        environment:
+            POSTGRES_PASSWORD: ${DB_PASSWORD}
+            POSTGRES_USER: ${DB_USER}
+            POSTGRES_DB: ${DB_NAME}
+        expose:
+            - "5432"
+        volumes:
+            - ./docker-postgres-init.sql:/docker-entrypoint-initdb.d/docker-postgres-init.sql
+
+    # frontend:
+    #     build: ./frontend
+    #     ports:
+    #         - "3000:3000"
+    #     volumes:
+    #         - ./frontend:/home/node/code
+    #         - /home/node/code/node_modules
+    #     depends_on:
+    #         - db
+    #         - backend
+
+    backend:
+        build: ./job-board-backend
+        ports:
+            - "5000:5000"
+        volumes:
+            - ./job-board-backend:/home/node/code
+            - /home/node/code/node_modules
+        depends_on:
+            - postgres
