@@ -14,6 +14,8 @@ services:
             - "5432"
         volumes:
             - ./docker-postgres-init.sql:/docker-entrypoint-initdb.d/docker-postgres-init.sql
+        networks:
+            - network
 
     # frontend:
     #     build: ./frontend
@@ -30,8 +32,20 @@ services:
         build: ./job-board-backend
         ports:
             - "5000:5000"
+        environment:
+            POSTGRES_PASSWORD: ${DB_PASSWORD}
+            POSTGRES_USER: ${DB_USER}
+            POSTGRES_DB: ${DB_NAME}
+            DATABASE_URL: ${DATABASE_URL}
         volumes:
             - ./job-board-backend:/home/node/code
             - /home/node/code/node_modules
         depends_on:
             - postgres
+        env_file:
+            - .env
+        networks:
+            - network
+networks:
+    network: {}
+
