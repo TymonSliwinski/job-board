@@ -7,9 +7,9 @@ The project, as of now, consists of two parts:
 - Mobile App: React Native app, using Expo  
 
 <p float="left">
-<img src="docs/screenshot.jpg?raw=true" title="Offer list" width="33%">
-<img src="docs/screenshot-map.jpg?raw=true" title="Map" width="33%">
-<img src="docs/screenshot-offer.jpg?raw=true" title="Offer" width="33%">
+<img src="docs/screenshot.jpg?raw=true" title="Offer list" width="30%">
+<img src="docs/screenshot-map.jpg?raw=true" title="Map" width="30%">
+<img src="docs/screenshot-offer.jpg?raw=true" title="Offer" width="30%">
 </p>
 
 ## Usage  
